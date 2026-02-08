@@ -1,6 +1,6 @@
 # GhostLog Privacy Policy
 
-**Last updated:** [DATE]
+**Last updated:** 08/02/2026
 
 GhostLog ("we," "our," or "the extension") is committed to putting your privacy first. This policy explains what data we collect, how we use it, and where it is stored.
 
