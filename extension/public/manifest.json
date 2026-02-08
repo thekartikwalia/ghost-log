@@ -1,0 +1,50 @@
+{
+  "manifest_version": 3,
+  "name": "GhostLog: One-Click Job Application Tracker",
+  "description": "Stop getting ghosted. Log every application in one click, track who’s gone quiet, and own your pipeline - from LinkedIn to Gmail.",
+  "version": "1.0.0",
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "storage",
+    "scripting",
+    "identity",
+    "notifications",
+    "alarms"
+  ],
+  "host_permissions": [
+    "https://*/*",
+    "http://*/*"
+  ],
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "GhostLog"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "options_ui": {
+    "page": "options.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.linkedin.com/*",
+        "*://*.greenhouse.io/*",
+        "*://*.lever.co/*",
+        "*://jobs.lever.co/*",
+        "*://mail.google.com/*",
+        "*://outlook.live.com/*",
+        "*://*.outlook.com/*",
+        "*://outlook.office.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "oauth2": {
+    "client_id": "255866995720-khc9nq6kuhvbjb98pm21t8vrjg0u9nos.apps.googleusercontent.com",
+    "scopes": ["openid", "email", "profile"]
+  }
+}

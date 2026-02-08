@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+extension/dist/
+backend/dist/
+
+# Environment / secrets
+.env
+.env.local
+.env.production
+extension/.env.production
+*.local.settings.json
+backend/local.settings.json
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Azure
+.azure/

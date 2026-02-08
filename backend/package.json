@@ -1,0 +1,25 @@
+{
+  "name": "ghostlog-backend",
+  "version": "1.0.0",
+  "description": "GhostLog Azure Functions backend",
+  "main": "syncApplication/index.js",
+  "scripts": {
+    "build": "tsc && mkdir -p dist/syncApplication && cp src/functions/syncApplication/function.json dist/syncApplication/ && sed 's|\"\\.\\./\\.\\./|\"\\.\\./|g' dist/functions/syncApplication/index.js > dist/syncApplication/index.js && cp host.json dist/ && cp local.settings.json dist/ 2>/dev/null || true && cp package.json dist/ && (cd dist && npm install --omit=dev 2>/dev/null || true)",
+    "start": "npm run build && cd dist && func start",
+    "test": "echo \"No tests yet\"",
+    "seed": "tsc && node dist/scripts/seed-ghosted-apps.js"
+  },
+  "dependencies": {
+    "@azure/data-tables": "^13.3.0",
+    "google-auth-library": "^9.4.1"
+  },
+  "devDependencies": {
+    "@azure/functions": "^4.0.0",
+    "@types/node": "^20.10.0",
+    "azure-functions-core-tools": "4",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
